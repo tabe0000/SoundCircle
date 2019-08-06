@@ -12,4 +12,4 @@ Processingを使ってパソコンのマイクから拾った音声を可視化�
 <img src = "./pic1.JPG" width=250>
 <img src = "./pic2.JPG" width=250>
 <img src = "./pic3.JPG" width=250>
-スクリーンショットだと、残像が残らないため、直撮りしています。
+スクリーンショットだと、残像が残らないため直撮りしています。
