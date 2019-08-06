@@ -4,11 +4,13 @@ import processing.sound.*;
 AudioIn in;
 Amplitude amp;
 
+//表示される円の個数Circle[x]
 Circle[] circles = new Circle[35];
+
 int frameCounter = 0;
 
 void setup() {
-    size(800, 800);
+    size(1920, 1080);
     frameRate(60);
     in = new AudioIn(this, 0);
     in.start();
@@ -63,8 +65,8 @@ public class Circle {
         ranPosY = new Random();
         ranPosX = new Random();
         
-        posY = ranPosY.nextInt(width);
-        posX = ranPosX.nextInt(height);
+        posY = ranPosY.nextInt(height);
+        posX = ranPosX.nextInt(width);
         hSize = 10;
         wSize = 10;
     }
@@ -73,8 +75,8 @@ public class Circle {
         ranPosY = new Random();
         ranPosX = new Random();
         
-        posY = ranPosY.nextInt(width);
-        posX = ranPosX.nextInt(height);
+        posY = ranPosY.nextInt(height);
+        posX = ranPosX.nextInt(width);
     }
 
 
