@@ -4,7 +4,7 @@ import processing.sound.*;
 AudioIn in;
 Amplitude amp;
 
-Circle[] circles = new Circle[20];
+Circle[] circles = new Circle[35];
 int frameCounter = 0;
 
 void setup() {
@@ -32,10 +32,10 @@ void draw() {
     for(Circle ci : circles) {
 
         ci.drawing(diameter);
-        if(counter % 75 == 0 && index % 2 == 0)
+        if(frameCounter % 75 == 0 && index % 2 == 0)
         {
             ci.changePos();
-        }else if(counter% 150 == 0)
+        }else if(frameCounter% 150 == 0)
         {
             ci.changePos();
         }
