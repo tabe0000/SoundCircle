@@ -4,13 +4,13 @@ import processing.sound.*;
 AudioIn in;
 Amplitude amp;
 
-//表示される円の個数Circle[x]
-Circle[] circles = new Circle[35];
+
+Circle[] circles = new Circle[50];
 
 int frameCounter = 0;
 
 void setup() {
-    size(1920, 1080);
+    size(500, 500);
     frameRate(60);
     in = new AudioIn(this, 0);
     in.start();
@@ -31,6 +31,7 @@ void draw() {
     float diameter = map(amp.analyze(), 0.0, 1.0, 0.0, width*scale);
 
     int index = 0;
+    
     for(Circle ci : circles) {
 
         ci.drawing(diameter);
@@ -45,6 +46,8 @@ void draw() {
     }
 
     frameCounter++;
+
+    save("./img/result.jpg");
 }
 
 
@@ -80,15 +83,17 @@ public class Circle {
     }
 
 
-    public void drawing(float size){
+    public void drawing(float size) {
         noFill();
         smooth();
         colorEffector();
         strokeWeight(5);
-        ellipse(posX, posY, size, size);
+        if(size > 30){
+            ellipse(posX, posY, size, size);
+        }
     }
 
-    void colorEffector(){
+    void colorEffector() {
         colorCallTimes++;
 
         if(colorCallTimes == 1){
