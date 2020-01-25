@@ -10,13 +10,18 @@ Circle[] circles = new Circle[50];
 int frameCounter = 0;
 
 void setup() {
+    //ウインドウサイズを定義
     size(500, 500);
+    //フレームレートを定義
     frameRate(60);
+    
+    //マイクをセットアップ
     in = new AudioIn(this, 0);
     in.start();
     amp = new Amplitude(this);
     amp.input(in);
 
+    //Circleをインスタンス化
     for(int i=0;  i < circles.length;  i++){
         Circle circle = new Circle();
         circles[i] = circle;
@@ -33,12 +38,14 @@ void draw() {
     int index = 0;
     
     for(Circle ci : circles) {
-
+        //円を描画
         ci.drawing(diameter);
+        
+        //特定のフレームで描画位置変更
         if(frameCounter % 75 == 0 && index % 2 == 0)
         {
             ci.changePos();
-        }else if(frameCounter% 150 == 0)
+        }else if(frameCounter % 150 == 0)
         {
             ci.changePos();
         }
@@ -47,7 +54,7 @@ void draw() {
 
     frameCounter++;
 
-    save("./img/result.jpg");
+    //save("./img/result.jpg");
 }
 
 
@@ -70,10 +77,12 @@ public class Circle {
         
         posY = ranPosY.nextInt(height);
         posX = ranPosX.nextInt(width);
+        
         hSize = 10;
         wSize = 10;
     }
 
+    //描画位置を更新
     public void changePos() {
         ranPosY = new Random();
         ranPosX = new Random();
@@ -82,7 +91,7 @@ public class Circle {
         posX = ranPosX.nextInt(width);
     }
 
-
+    //円を描画
     public void drawing(float size) {
         noFill();
         smooth();
@@ -93,6 +102,7 @@ public class Circle {
         }
     }
 
+    //毎フレームごとに色を変更
     void colorEffector() {
         colorCallTimes++;
 
